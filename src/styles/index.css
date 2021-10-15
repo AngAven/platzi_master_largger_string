@@ -14,6 +14,8 @@ body{
     display: grid;
     justify-content: center;
     align-items: center;
+    background-color: #41464b;
+    color: white;
 }
 
 .actions{
