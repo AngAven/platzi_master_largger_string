@@ -20,8 +20,18 @@ const calculateMaxArray = () => {
   })
 
   if (!(elementWithoutString > 0)){
-    arrayInputs[maxArray(fullArray)].classList.add('border-string-largger')
+    const maxIndexElement = maxArray(fullArray)
+
+    equalMaxSrtingLength(arrayInputs, maxIndexElement)
   }
+}
+
+const equalMaxSrtingLength = (array, indexMaxString) => {
+  const searchEqualArrayLength = array.filter((item, index) => item.value.trim().length === array[indexMaxString].value.trim().length)
+
+  searchEqualArrayLength.forEach(element => {
+    element.classList.add('border-string-largger')
+  })
 }
 
 const maxArray = fullArray => {
@@ -62,7 +72,7 @@ const removeLastArrayInput = () => {
   const inputGroup = Array.from(document.querySelectorAll('.array'))
   const inputGroupLength = inputGroup.length
 
-  if (inputGroupLength === 1){
+  if (inputGroupLength < 3){
     return
   }
 
