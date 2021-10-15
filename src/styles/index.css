@@ -15,3 +15,25 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+.actions{
+    min-width: 500px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.border-alert{
+    border: solid red 2px;
+}
+
+.border-string-largger{
+    border: solid mediumspringgreen 2px;
+}
+
+.btn{
+    max-width: 250px;
+}
+.title{
+    font-size: 2rem;
+}

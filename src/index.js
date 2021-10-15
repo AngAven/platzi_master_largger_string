@@ -10,13 +10,14 @@ const calculateMaxArray = () => {
     const arrayValue = arrayInput.value.trim()
 
     if (arrayValue === ''){
-      alert('Llena todos los campos')
+      arrayInput.classList.add('border-alert')
+      console.log(arrayInput)
     }
 
     fullArray.push([arrayInput.value])
   })
 
-  maxArray(fullArray)
+  arrayInputs[maxArray(fullArray)].classList.add('border-string-largger')
 }
 
 const maxArray = fullArray => {
@@ -39,10 +40,7 @@ const maxArray = fullArray => {
     arrayMaxLengthPosition = index
   })
 
-  console.log('El arreglo con el mayor número de caracteres es el: Array[', arrayMaxLengthPosition, ']',
-    'Con el contenido: => ', fullArrayInput[arrayMaxLengthPosition][0])
-
-  alert(fullArrayInput[arrayMaxLengthPosition][0])
+  return arrayMaxLengthPosition
 }
 
 const createArayInput = () => {
@@ -50,7 +48,8 @@ const createArayInput = () => {
   const inputArray = document.createElement('input')
   inputArray.classList.add('form-control')
   inputArray.classList.add('array')
-  inputArray.placeholder = 'ABCDabcd1234'
+  inputArray.placeholder = 'texto'
+  inputArray.type = 'text'
 
   inputGroup.appendChild(inputArray)
 }
@@ -66,4 +65,49 @@ const removeLastArrayInput = () => {
   inputGroup[inputGroupLength - 1].remove()
 }
 
-export default calculateMaxArray
+const addEvents = () => {
+  const addArray = document.querySelector('.add-array')
+  const removeArray = document.querySelector('.remove-array')
+  const calculateArray = document.querySelector('.calculate-array')
+
+  addArray.addEventListener('click', () => {
+    console.log('add')
+    removeBorderAlert()
+    removeBorderSuccess()
+    createArayInput()
+  })
+
+  removeArray.addEventListener('click', () => {
+    console.log('remove')
+    removeBorderAlert()
+    removeBorderSuccess()
+    removeLastArrayInput()
+  })
+
+  calculateArray.addEventListener('click', () => {
+    console.log('calculate')
+    removeBorderAlert()
+    removeBorderSuccess()
+    calculateMaxArray()
+  })
+}
+
+const removeBorderAlert = () => {
+  const arrayInputs = Array.from(document.querySelectorAll('.array'))
+  arrayInputs.forEach(arrayInput => {
+    if (arrayInput.classList.contains('border-alert')){
+      arrayInput.classList.remove('border-alert')
+    }
+  })
+}
+
+const removeBorderSuccess = () => {
+  const arrayInputs = Array.from(document.querySelectorAll('.array'))
+  arrayInputs.forEach(arrayInput => {
+    if (arrayInput.classList.contains('border-string-largger')){
+      arrayInput.classList.remove('border-string-largger')
+    }
+  })
+}
+
+addEvents()

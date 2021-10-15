@@ -7,9 +7,6 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
-    library: 'calculateMaxArray',
-    libraryTarget: 'window',
-    libraryExport: 'default'
   },
   resolve: {
     extensions: ['.js']
