@@ -4,6 +4,7 @@ import './styles/index.css'
 
 const calculateMaxArray = () => {
   const arrayInputs = Array.from(document.querySelectorAll('.array'))
+  let elementWithoutString = 0 // Existencia de elementos vacios
   let fullArray = new Array(0)
 
   arrayInputs.forEach(arrayInput => {
@@ -11,13 +12,16 @@ const calculateMaxArray = () => {
 
     if (arrayValue === ''){
       arrayInput.classList.add('border-alert')
-      console.log(arrayInput)
+      elementWithoutString += 1
+      return
     }
 
     fullArray.push([arrayInput.value])
   })
 
-  arrayInputs[maxArray(fullArray)].classList.add('border-string-largger')
+  if (!(elementWithoutString > 0)){
+    arrayInputs[maxArray(fullArray)].classList.add('border-string-largger')
+  }
 }
 
 const maxArray = fullArray => {
