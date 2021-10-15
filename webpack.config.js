@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
-    library: 'maxArray',
+    library: 'calculateMaxArray',
     libraryTarget: 'window',
     libraryExport: 'default'
   },
@@ -24,11 +24,11 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/i,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader, 'css-loader'
         ]
-      }
+      },
     ]
   },
   plugins: [
