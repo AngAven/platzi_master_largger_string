@@ -27,7 +27,7 @@ const calculateMaxArray = () => {
 }
 
 const equalMaxSrtingLength = (array, indexMaxString) => {
-  const searchEqualArrayLength = array.filter((item, index) => item.value.trim().length === array[indexMaxString].value.trim().length)
+  const searchEqualArrayLength = array.filter(item => item.value.trim().length === array[indexMaxString].value.trim().length)
 
   searchEqualArrayLength.forEach(element => {
     element.classList.add('border-string-largger')
