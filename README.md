@@ -7,7 +7,7 @@ You can test in web, click here =>  [🖥](https://angaven.github.io/platzi_mast
 ## Installation
 ```sh
 Download repository, then enter into folder downloaded by terminal
-Run in terminal "npm intall"
+Run in terminal "npm install"
 Run in terminal "npm run dev"
 Thats all, go to: "./dist" folder and test your index.html
 ```
